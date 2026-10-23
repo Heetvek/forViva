@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Library Management System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>📚 Library Management System</h1>
+    <p>Add, search, issue and return books</p>
+  </header>
+
+  <main class="container">
+    <!-- Dashboard counts -->
+    <section class="stats">
+      <div class="stat total"><span id="statTotal">0</span><small>Total Books</small></div>
+      <div class="stat available"><span id="statAvailable">0</span><small>Available</small></div>
+      <div class="stat issued"><span id="statIssued">0</span><small>Issued</small></div>
+    </section>
+
+    <div id="message" class="alert hidden"></div>
+
+    <!-- Add / Edit form -->
+    <section class="card">
+      <h2 id="formTitle">Add New Book</h2>
+      <form id="bookForm" novalidate>
+        <div class="grid">
+          <input id="title" placeholder="Book Title" />
+          <input id="author" placeholder="Author" />
+          <select id="category">
+            <option value="">Select Category</option>
+            <option>Programming</option>
+            <option>Database</option>
+            <option>Networking</option>
+            <option>Mathematics</option>
+            <option>Fiction</option>
+          </select>
+          <input id="year" type="number" placeholder="Publication Year" />
+        </div>
+        <div class="actions">
+          <button type="submit" id="submitBtn" class="btn primary">Add Book</button>
+          <button type="button" id="cancelBtn" class="btn hidden">Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Book list -->
+    <section class="card">
+      <div class="list-head">
+        <h2>Book List</h2>
+        <div class="filters">
+          <input id="search" placeholder="Search title, author, category..." />
+          <select id="statusFilter">
+            <option value="">All</option>
+            <option>Available</option>
+            <option>Issued</option>
+          </select>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>ID</th><th>Title</th><th>Author</th><th>Category</th><th>Year</th><th>Status</th><th>Issued To</th><th>Actions</th></tr>
+          </thead>
+          <tbody id="bookTable"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Issue book popup -->
+  <div id="issueModal" class="modal hidden">
+    <div class="modal-box">
+      <h3>Issue Book</h3>
+      <p id="issueBookName"></p>
+      <input id="issuedTo" placeholder="Student Name" />
+      <div class="actions">
+        <button id="confirmIssue" class="btn primary">Issue</button>
+        <button id="closeIssue" class="btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
