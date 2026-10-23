@@ -1,0 +1,8 @@
+{
+  "name": "library-management-system",
+  "version": "1.0.0",
+  "description": "Mini Project - Library Management System (Express.js + JSON file storage)",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "dependencies": { "express": "^4.19.2" }
+}
